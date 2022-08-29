@@ -80,7 +80,7 @@
                 </tbody>
             </table>
             @else
-            <h1 class="text-center">Nem um item no carrinho</h1>
+            <h1 class="text-center">Nenhum item no carrinho</h1>
             @endif
         </div>
     </div>
