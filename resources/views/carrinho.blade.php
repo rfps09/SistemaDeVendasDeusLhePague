@@ -10,9 +10,9 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th class="text-center">Price</th>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th class="text-center">Preço</th>
                         <th class="text-center">Total</th>
                         <th> </th>
                     </tr>
@@ -51,7 +51,7 @@
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
-                        <td><h5>Estimated shipping</h5></td>
+                        <td><h5>Frete</h5></td>
                         <td class="text-right"><h5><strong>R$0.00</strong></h5></td>
                     </tr>
                     <tr>

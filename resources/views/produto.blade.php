@@ -26,10 +26,10 @@
                             </div>
                             <div class="mt-4 mb-3">
                                 <h5 class="text-uppercase">{{$produto->descricao}}</h5>
-                                <span class="strike-text">R${{number_format($produto->valorUnitario*1.40,2)}}</span>
+                                <span class="strike-text">R${{number_format($produto->valorUnitario*1.40,2,',','.')}}</span>
                                 <span>28% off</span>
                                 <div class="price d-flex flex-row align-items-center"> 
-                                    <h4 class="mr-1">R${{number_format($produto->valorUnitario,2)}}</h4>
+                                    <h4 class="mr-1">R${{number_format($produto->valorUnitario,2,',','.')}}</h4>
                                 </div>
                                 <h6 class="text-success">Frete Grátis</h6>
                             </div>
