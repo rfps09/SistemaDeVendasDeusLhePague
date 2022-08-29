@@ -1,11 +1,11 @@
 # [SistemaDeVendasDeusLhePague](https://github.com/rfps09/SistemaDeVendasDeusLhePague)
 Site de vendas para disciplina da faculdade
 
-Linguagem de Programção: PHP (versão 8.1.6)
+Linguagem de Programção: [PHP](https://www.php.net/) (versão 8.1.6)
 
-FrameWork: Laravel (versão 9.23.0)
+FrameWork: [Laravel](https://laravel.com/) (versão 9.23.0)
 
-Banco de dados: mysql (mariaDB)
+Banco de dados: [MySQL](https://www.apachefriends.org/pt_br/index.html) (MariaDB)
 
 Instruções para rodar o projeto localmente:
 - Instalar o Composer
