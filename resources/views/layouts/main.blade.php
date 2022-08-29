@@ -86,6 +86,7 @@
                   <svg width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16"><use xlink:href="#cart"/></svg>
                   Carrinho
                 </a>
+                <a href="/user/profile" class="btn btn-outline-light">Meu Perfil</a>
                 <button type="submit" class="btn btn-outline-light">Sair</button>
               </div>
           </form>

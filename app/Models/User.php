@@ -28,8 +28,6 @@ class User extends Authenticatable
         'email',
         'password',
         'cpf',
-        'nomeCliente',
-        'renda',
         'classe'
     ];
 

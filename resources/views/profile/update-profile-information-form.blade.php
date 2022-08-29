@@ -1,10 +1,10 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+        {{ __('Informações do Perfil') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+        {{ __('Atualize as informações da sua conta.') }}
     </x-slot>
 
     <x-slot name="form">
@@ -54,7 +54,7 @@
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
+            <x-jet-label for="name" value="{{ __('Nome') }}" />
             <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
             <x-jet-input-error for="name" class="mt-2" />
         </div>
@@ -81,15 +81,33 @@
                 @endif
             @endif
         </div>
+
+        <!-- CPF -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="cpf" value="{{ __('CPF') }}" />
+            <x-jet-input id="cpf" type="text" class="mt-1 block w-full" wire:model.defer="state.cpf" autocomplete="cpf" />
+            <x-jet-input-error for="cpf" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="classe" value="{{ __('Renda') }}" />
+            <select id="classe" name="classe" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model.defer="state.classe">
+                <option value="E">até R$1.254</option>
+                <option value="D">entre R$1.255 e R$2.004</option>
+                <option value="C">entre R$2.005 e R$8.640</option>
+                <option value="B">entre R$8.641 e R$11.261</option>
+                <option value="A">Superior a R$11.262</option>
+            </select>
+        </div>
     </x-slot>
 
     <x-slot name="actions">
         <x-jet-action-message class="mr-3" on="saved">
-            {{ __('Saved.') }}
+            {{ __('Salvo.') }}
         </x-jet-action-message>
 
         <x-jet-button wire:loading.attr="disabled" wire:target="photo">
-            {{ __('Save') }}
+            {{ __('Salvar') }}
         </x-jet-button>
     </x-slot>
 </x-jet-form-section>
