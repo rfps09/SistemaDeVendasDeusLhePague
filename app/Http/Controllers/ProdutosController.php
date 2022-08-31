@@ -26,7 +26,7 @@ class ProdutosController extends Controller
                     $produtos = $produtosInterset;
             }
         } else {
-            $produtos = Produto::all();
+            $produtos = Produto::all()->shuffle();
         }
 
         return view('home', ['produtos'=>$produtos]);
@@ -65,9 +65,15 @@ class ProdutosController extends Controller
     }
 
     public function remover($id) {
-        if(Produto::destroy($id)) {
-            File::delete(public_path('img/produtos/'. $id.'.jpg'));
+
+        try {
+            if(Produto::destroy($id)) {
+                File::delete(public_path('img/produtos/'. $id.'.jpg'));
+            }
         }
+        catch(\Illuminate\Database\QueryException $e) {
+            return redirect(route('paginaEdicaoProdutos'))->with('msg', 'O produto não pode ser excluido, por estar cadastrado em uma venda.');
+        }         
 
         return redirect(route('paginaEdicaoProdutos'));
     }

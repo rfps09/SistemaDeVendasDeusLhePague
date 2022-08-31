@@ -3,6 +3,11 @@
 @section('title', 'Meus Pedidos')
 
 @section('conteudo')
+@if(session('msg'))
+<script>
+    alert('{{ session('msg') }}');
+</script>
+@endif
 <div class="container mt-5 mb-5">
     <div class="col">
         @foreach ($pedidos as $pedido)

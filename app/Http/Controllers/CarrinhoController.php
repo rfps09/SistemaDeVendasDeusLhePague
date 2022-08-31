@@ -16,8 +16,13 @@ class CarrinhoController extends Controller
         $produtos = $request->session()->get('cart', []);
 
         if (array_key_exists($codProduto, $produtos)) {
-            if($produtos[$codProduto]->qtdEstoque > $produtos[$codProduto]->qty)
+            $produto = Produto::find($codProduto);
+            if($produto->qtdEstoque > $produtos[$codProduto]->qty)
                 $produtos[$codProduto]->qty++;
+            else if($produto->qtdEstoque <= 0) 
+                $request->session()->pull('cart.' . $codProduto);
+            else
+                $produtos[$codProduto]->qty = $produto->qtdEstoque;
         } else {
             $produto = Produto::find($codProduto);
 
@@ -62,7 +67,8 @@ class CarrinhoController extends Controller
                     $pedido->save();
 
                     foreach($produtos as $produto) {
-                        if($produto->qtdEstoque < $produto->qty) throw new Exception('Sem estoque');
+                        $produtoAtt = Produto::find($produto->codProduto);
+                        if($produtoAtt->qtdEstoque < $produto->qty) throw new Exception('Sem estoque');
                         $detalhePedido = new DetalheVenda;
 
                         $detalhePedido->codVenda = $pedido->codVenda;
@@ -79,6 +85,9 @@ class CarrinhoController extends Controller
                 DB::commit();
             } catch(Exception $e) {
                 DB::rollback();
+                if($e == 'Sem estoque')
+                    return redirect(route('meusPedidos'))->with('msg', 'Erro ao finalizar comprar: ' . $e);
+                else return redirect(route('meusPedidos'))->with('msg', 'Erro ao finalizar comprar.');
             }
         }
 

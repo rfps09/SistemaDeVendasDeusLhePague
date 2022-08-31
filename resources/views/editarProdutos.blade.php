@@ -3,6 +3,12 @@
 @section('title', 'Edição de Produtos')
 
 @section('conteudo')
+
+@if(session('msg'))
+<script>
+    alert('{{ session('msg') }}');
+</script>
+@endif
 <div class="container pt-5 mt-2 mt-md-n3">
     <div class="row justify-content-md-center">
         <div class="col-xl-9 col-md-8">
