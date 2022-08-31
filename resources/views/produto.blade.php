@@ -33,7 +33,6 @@
                                 </div>
                                 <h6 class="text-success">Frete Grátis</h6>
                             </div>
-                            <p class="about">Shop from a wide range of t-shirt from orianz. Pefect for your everyday use, you could pair it with a stylish pair of jeans or trousers complete the look.</p>
                             
                             <div class="cart mt-4 align-items-center">
                                 @if ($produto->qtdEstoque > 0)
