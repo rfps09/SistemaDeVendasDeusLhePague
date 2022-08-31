@@ -20,7 +20,10 @@ class ProdutosController extends Controller
 
             foreach ($search as $term) {
                 $produtosInterset = Produto::where('descricao', 'like', '%'. $term .'%')->get();
-                $produtos = $produtosInterset->intersect($produtos);
+                if($produtosInterset->isNotEmpty() && $produtos->isNotEmpty())
+                    $produtos = $produtosInterset->intersect($produtos);
+                else if($produtos->isEmpty())
+                    $produtos = $produtosInterset;
             }
         } else {
             $produtos = Produto::all();
@@ -39,7 +42,10 @@ class ProdutosController extends Controller
 
             foreach ($search as $term) {
                 $produtosInterset = Produto::where('descricao', 'like', '%'. $term .'%')->get();
-                $produtos = $produtosInterset->intersect($produtos);
+                if($produtosInterset->isNotEmpty() && $produtos->isNotEmpty())
+                    $produtos = $produtosInterset->intersect($produtos);
+                else if($produtos->isEmpty())
+                    $produtos = $produtosInterset;
             }
         } else {
             $produtos = Produto::all();
