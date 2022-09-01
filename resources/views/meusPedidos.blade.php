@@ -15,7 +15,7 @@
             <div class="card mb-4 rounded-3 shadow-sm">
                 <div class="card-header py-3">
                 <h6 class="my-0 fw-normal">Pedido Nº {{ $pedido->codVenda }}</h6>
-                <h6 class="my-0 fw-normal">Pedido realizado em {{ $pedido->dataVenda }}</h6>
+                <h6 class="my-0 fw-normal">Pedido realizado em {{ date_format(date_create($pedido->dataVenda), 'd/m/Y h:m') }}</h6>
                 </div>
                 <div class="card-body">
                     <div class="row bg-white border rounded">
