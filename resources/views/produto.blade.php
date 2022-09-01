@@ -1,9 +1,13 @@
 @extends('layouts.main')
 
-@section('title', $produto->descricao)
-
+@if($produto != NULL)
+    @section('title', $produto->descricao)
+@else
+    @section('title', 'Produto não encontrado')
+@endif
 @section('conteudo')
 
+@if($produto != NULL)
 <div class="container mt-5 mb-5 pt-2">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10">
@@ -48,5 +52,9 @@
         </div>
     </div>
 </div>
-
+@else
+    <div class="container mt-5 mb-5 pt-2 text-center">
+        <h1>Produto não encontrado</h1>
+    </div>
+@endif
 @endsection
