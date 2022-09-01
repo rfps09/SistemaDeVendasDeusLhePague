@@ -9,6 +9,7 @@
 </script>
 @endif
 <div class="container mt-5 mb-5">
+    @if($pedidos->isNotEmpty())
     <div class="col">
         @foreach ($pedidos as $pedido)
             <div class="card mb-4 rounded-3 shadow-sm">
@@ -60,7 +61,9 @@
                 </div>
             </div>
         @endforeach
-        
     </div>
+    @else
+    <h1 class="text-center">Nenhum Pedido Ainda</h1>
+    @endif
 <div class="container mt-5 mb-5">
 @endsection
