@@ -16,13 +16,13 @@ class PedidoController extends Controller
         $detalhePedidos = [];
 
         $id = auth()->user()->id;
-        $pedidos = Venda::where('codCliente',$id)->get();
+        $pedidos = Venda::where('codCliente',$id)->orderBy('codVenda','desc')->get();
 
         foreach($pedidos as $pedido) {
             $key = $pedido->codVenda;
             $produtos = DB::table('detalhe_vendas')
             ->join('produtos', 'detalhe_vendas.codProduto', '=', 'produtos.codProduto')
-            ->select('produtos.*', 'detalhe_vendas.qtdProduto')
+            ->select('produtos.*', 'qtdProduto')
             ->where('codVenda',$key)
             ->get();
             $detalhePedidos[$key] = $produtos;
