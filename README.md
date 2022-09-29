@@ -17,5 +17,7 @@ Instruções para rodar o projeto localmente:
 - abrir o projeto no terminal
 - rodar o comando php artisan migrate
 - Importar o backup do banco de dados
+- rodar o comando cp .env.example .env
+- rodar o comando php artisan key:generate
 - rodar o comando php artisan server
 - acessar o localhost:8000/
