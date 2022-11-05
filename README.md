@@ -11,13 +11,13 @@ Instruções para rodar o projeto localmente:
 - Instalar o [Composer](https://www.apachefriends.org/pt_br/index.html)
 - Instalar o [Laravel](https://laravel.com/)
 - Instalar o [Xampp](https://www.apachefriends.org/pt_br/index.html)
+- abrir o projeto no terminal
+- rodar o comando cp .env.example .env
+- rodar o comando php artisan key:generate
 - Iniciar o Apache e o MySQL
 - acessar o localhost/phpmyadmin
 - criar o banco de dados sysSales
-- abrir o projeto no terminal
-- rodar o comando php artisan migrate
+- rodar o comando php artisan migrate no terminal
 - Importar o backup do banco de dados
-- rodar o comando cp .env.example .env
-- rodar o comando php artisan key:generate
-- rodar o comando php artisan server
+- rodar o comando php artisan serve
 - acessar o localhost:8000/
